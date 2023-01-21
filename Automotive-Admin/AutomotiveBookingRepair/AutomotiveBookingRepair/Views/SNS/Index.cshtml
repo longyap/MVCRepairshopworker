@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@if(ViewBag.msg != null)
+            {
+                <script>alert("@ViewBag.msg");</script>
+            }
+<center>
+    <h1>Subscripton Page</h1>
+    <br/> <hr/> <br/>
+    <form asp-action="processSubscription" method="post">
+        <div>
+            <label>Enter your Email Address for the Subscription:</label>
+            &nbsp;&nbsp;
+            <input type="text" name="emailAddress" placeholder="e.g: abc@gmail.com" />
+            <br/> <br/>
+            <button type="submit" class="btn btn-info">Click for Subscription</button>
+        </div>
+    </form>
+</center>

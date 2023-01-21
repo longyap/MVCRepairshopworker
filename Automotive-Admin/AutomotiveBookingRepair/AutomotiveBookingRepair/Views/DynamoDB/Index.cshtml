@@ -1,0 +1,57 @@
+﻿@model List<ServicePurchase>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<center>
+    <h1>Dynamo DB Menu Page</h1>
+    <br /><hr /><br />
+    <a asp-action="createTable" asp-controller="DynamoDB">Create Table</a>
+    &nbsp;&nbsp;
+    <a asp-action="insertForm" asp-controller="DynamoDB">Add New Item</a>
+    <br /><br />
+    <span>@ViewBag.msg</span>
+    <br /><br />
+    @if (Model.Count != 0)
+     {
+        //then read one by one from item
+        <table border="1">
+            <tr>
+                <th>Customer Name</th>
+                <th>Purchased Transaction ID</th>
+                <th>Purchase Service</th>
+                <th>Purchase Amount</th>
+                <th>Purchase Date</th>
+                <th>Purchase Method</th>
+                <th>Payment Date</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            @foreach (var item in Model)
+             {
+                <tr>
+                    <td>@item.CustomerName</td>
+                    <td>@item.TransactionID</td>
+                    <td>@item.PurchaseService</td>
+                    <td>@item.PurchaseAmount</td>
+                    <td>@item.PurchaseDate</td>
+                    <td>@item.PurchaseMethod</td>
+                    @if(item.PaymentDate.ToString() == "1/1/0001 12:00:00 AM")
+                            {
+                                <td></td>
+                            }
+                            else
+                            {
+                                <td>@item.PaymentDate</td>
+                            }
+            
+                    <td><a asp-action="EditPage" asp-route-Pkey="@item.CustomerName" asp-route-Skey="@item.TransactionID">
+                            <button>Edit</button></a></td>
+                    <td><a asp-action="DeletePage" asp-route-Pkey="@item.CustomerName" asp-route-Skey="@item.TransactionID">
+                            <button>Delete</button></a></td>
+                </tr>
+             }
+        </table>
+     }
+
+</center>

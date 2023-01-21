@@ -1,0 +1,52 @@
+﻿@model ServicePurchase
+@{
+    ViewData["Title"] = "EditPage";
+}
+
+<center>
+    <h1>Edit Item in Amazon DynamoDB Table</h1>
+    <br /><hr /><br />
+    <span>@ViewBag.msg</span>
+    <br />
+    <form method="post" asp-action="processEditOrder" asp-controller="DynamoDB">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="CustomerName" class="control-label"></label>
+            <input asp-for="CustomerName" class="form-control" readonly />
+            <span asp-validation-for="CustomerName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="TransactionID" class="control-label"></label>
+            <input asp-for="TransactionID" class="form-control" readonly />
+            <span asp-validation-for="TransactionID" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PurchaseService" class="control-label"></label>
+            <input asp-for="PurchaseService" class="form-control" />
+            <span asp-validation-for="PurchaseService" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PurchaseAmount" class="control-label"></label>
+            <input asp-for="PurchaseAmount" class="form-control" />
+            <span asp-validation-for="PurchaseAmount" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PurchaseDate" class="control-label"></label>
+            <input asp-for="PurchaseDate" class="form-control" />
+            <span asp-validation-for="PurchaseDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PurchaseMethod" class="control-label"></label>
+            <input asp-for="PurchaseMethod" class="form-control" />
+            <span asp-validation-for="PurchaseMethod" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="PaymentDate" class="control-label"></label>
+            <input asp-for="PaymentDate" class="form-control" />
+            <span asp-validation-for="PaymentDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Edit" class="btn btn-primary" />
+        </div>
+    </form>
+</center>

@@ -1,0 +1,29 @@
+﻿@model List<Amazon.S3.Model.S3Object>
+@{
+    ViewData["Title"] = "DisplayImageFromS3";
+}
+
+<center>
+    <h1>Offered Services</h1>
+    <br/>
+    <hr/>
+    <br/>
+    @foreach(var image in Model)
+     {
+        string imageURL = "https://" + image.BucketName + ".s3.amazonaws.com/" + image.Key; // this will be the cloudfront link
+        <div style= "text-align: center; display:inline-block; width: 300px; height:210px; margin:50px">
+            <div style="width:200px; height:200px; padding:10px">
+                <img src="@imageURL" width="300" height="200" />
+            </div>
+            <div>
+                <form asp-action="deleteImage" asp-route-ImageName="@image.Key" method="post">
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                    &nbsp;&nbsp;
+                    <button type="submit" class="btn btn-primary" asp-action="DownloadImage" asp-route-ImageName="@image.Key">Download</button>
+                    <br /> <br />
+                    <button type="submit" class="btn btn-primary" asp-action="GetPresignedURLImage" asp-route-ImageName="@image.Key">Pre-Signed URL Image</button>
+                </form>
+            </div>
+        </div>
+     }
+</center>

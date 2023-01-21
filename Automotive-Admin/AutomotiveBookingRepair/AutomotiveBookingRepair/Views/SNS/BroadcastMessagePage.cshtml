@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "BroadcastMessagePage";
+}
+
+<center>
+    <h1>Broadcasting the Email Message to the Public using AWS SNS</h1>
+    <br /><hr /><br />
+    <span>@ViewBag.msg</span>
+    <br /> <br/>
+    <form method="post" asp-action="processBroadcastMessage" asp-controller="SNS">
+        <label>Email Subject Title: </label>
+        <br /><br />
+        <textarea rows="2" cols="100" name="SubjectTitle"></textarea>
+        <br /><br />
+        <label>Type Your Broadcast Message here: </label>
+        <br /> <br />
+        <textarea rows="5" cols="100" name="broadcastMessage"></textarea>
+        <br /><br />
+        <button type="submit" class="btn btn-primary">Send Broadcast Email Now!</button>
+    </form>
+</center>

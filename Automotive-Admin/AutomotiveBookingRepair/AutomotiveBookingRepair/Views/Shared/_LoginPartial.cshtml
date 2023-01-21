@@ -1,0 +1,57 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using AutomotiveBookingRepair.Areas.Identity.Data
+
+@inject SignInManager<AutomotiveBookingRepairUser> SignInManager
+@inject UserManager<AutomotiveBookingRepairUser> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="CustomerList" asp-action="Index">Customer List</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="S3Bucket" asp-action="Index">Image Upload</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="S3Bucket" asp-action="DisplayImageFromS3">Services Offer</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="SNS" asp-action="Index">Subscription Page</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="SNS" asp-action="BroadcastMessagePage">Admin Broadcast Page</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="DynamoDB" asp-action="Index">DynamoDB Menu Page</a>
+        </li>
+
+        <li class="nav-item">
+            <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage" style="margin-right:-150px; margin-left:auto">@UserManager.GetUserName(User)!</a>
+        </li>
+        <li class="nav-item" >
+            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                <button id="logout" type="submit" class="nav-link btn btn-link text-dark" style="margin-right:-230px; margin-left:auto">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" id="register" asp-area="Identity" asp-page="/Account/Register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+    }
+</ul>

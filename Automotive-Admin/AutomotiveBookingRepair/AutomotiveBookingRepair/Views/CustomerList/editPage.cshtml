@@ -1,0 +1,57 @@
+﻿@model UserData 
+    <!--ensure that model must receive userdata-->
+    <!--model is what type of data you receive from backend-->
+@{
+    ViewData["Title"] = "editPage";
+}
+
+<center>
+    <h1>Edit Customer Data</h1>
+    <br/>
+    <hr/>
+    <br/>
+
+    <form asp-action="processEditPage" asp-controller="CustomerList" method="post">
+        <table border="1">
+            <tr>
+                <th><label asp-for="@Model.CustomerID"></label></th>
+                <td>
+                    <input asp-for="@Model.CustomerID" readonly /> <!--because id is unique-->
+                    <span asp-validation-for="@Model.CustomerID"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="@Model.CustomerName"></label></th>
+                <td>
+                    <input asp-for="@Model.CustomerName" />
+                    <span asp-validation-for="@Model.CustomerName"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="@Model.CustomerEmail"></label></th>
+                <td>
+                    <input asp-for="@Model.CustomerEmail" />
+                    <span asp-validation-for="@Model.CustomerEmail"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="@Model.CustomerAddress"></label></th>
+                <td>
+                    <input asp-for="@Model.CustomerAddress" />
+                    <span asp-validation-for="@Model.CustomerAddress"></span>
+                </td>
+            </tr>
+            <tr>
+                <th><label asp-for="@Model.CustomerDOB"></label></th>
+                <td>
+                    <input asp-for="@Model.CustomerDOB" />
+                    <span asp-validation-for="@Model.CustomerDOB"></span>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2"><button type="submit" class="btn btn-primary">Edit Customer Data</button></th>
+            </tr>
+        </table>
+    </form>
+</center>
+

@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<center>
+    <h1>Upload Booking Repair Images to S3</h1>
+    <br/>
+    <span style="color: @ViewBag.color">@ViewBag.msg</span>
+    <hr/>
+    <br/>
+    <form asp-action="ProcessUploadImage" asp-controller="S3Bucket" method="post" enctype="multipart/form-data"> <!--enctype to recognize the file type-->
+        Choose Your Repairing Part Picture:
+        <input type="file" name="imagefile" accept="image/*" multiple /> <!--here image/* is used to show img folder directly-->
+        <br/> <br/>
+        <input type="submit" name="submit" value="Upload image to S3!" />
+    </form>
+</center>
+
