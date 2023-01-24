@@ -1,0 +1,46 @@
+﻿@model Booking
+@{
+    ViewData["Title"] = "AddData";
+}
+
+<center>
+    <h1>Make New Booking</h1>
+    <br/><hr /><br/>
+    <form asp-action="processInsert" method="post">
+        <table border="1">
+            <tr>
+                <th>Customer Automotive Brand</th>
+                    <td><input asp-for="Booking_CustomerAutoBrand"/>
+                    <span asp-validation-for="Booking_CustomerAutoBrand" class="text-danger"></span>
+                    </td>
+            </tr>
+            <tr>
+                <th>Customer Automotive Color</th>
+                <td>
+                    <input asp-for="Booking_CustomerAutoColor" />
+                    <span asp-validation-for="Booking_CustomerAutoColor" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Booking Date</th>
+                <td>
+                    <input asp-for="BookingDate" />
+                    <span asp-validation-for="BookingDate" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <th>Services</th>
+                <td>
+                    <input asp-for="Services" />
+                    <span asp-validation-for="Services" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center"><button type="submit" class="btn btn-primary">Make Booking</button></td>
+            </tr>
+        </table>
+
+    </form>
+</center>
+
+

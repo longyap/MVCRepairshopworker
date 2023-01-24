@@ -1,0 +1,42 @@
+﻿@model List<cus_automotive>
+@{
+    ViewData["Title"] = "Index";
+}
+@if(ViewBag.msg != "")
+{
+    <script>alert("@ViewBag.msg");</script>
+}
+<h1>Customer Automotive List</h1>
+
+<p><a asp-action="AddData">Add Your Automotive Here </a></p>
+
+<hr />
+<br />
+<br />
+<hr />
+<br /> 
+<center>
+    <table border="1" style="text-align:center">
+        <tr style="background-color:black; color:white">
+            <th>Customer Automotive ID</th>
+            <th>Customer Automotive Brand</th>
+            <th>Customer Automotive Color</th>
+            <th>Customer Automotive Register Date</th>
+            <th>Edit Action</th>
+            <th>Delete Action</th>
+        </tr>
+        <!--Start Second row is data from table automotive-->
+        @foreach(var singlecus_automotive in Model)
+        {
+            <tr>
+                <td>@singlecus_automotive.CustomerAutoID</td>
+                <td>@singlecus_automotive.CustomerAutoBrand</td>
+                <td>@singlecus_automotive.CustomerAutoColor</td>
+                <td>@singlecus_automotive.CustomerAutoRegisterDate</td>
+                <td><a asp-action="editAction" asp-route-CustomerAutoID="@singlecus_automotive.CustomerAutoID"><button>Edit</button></a></td>
+                <td><a asp-action="deleteAction" asp-route-CustomerAutoID="@singlecus_automotive.CustomerAutoID"><button>Delete</button></a></td>
+            </tr>
+        }
+    </table>
+
+</center>

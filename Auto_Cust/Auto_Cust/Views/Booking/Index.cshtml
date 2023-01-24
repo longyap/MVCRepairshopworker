@@ -1,0 +1,38 @@
+﻿@model List<Booking>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Booking List</h1>
+
+<p><a asp-action="AddData">Make new Booking</a></p>
+
+
+<hr />
+<br />
+<br />
+<hr />
+<br /> 
+<center>
+    <table border="1" style="text-align:center">
+        <tr style="background-color:black; color:white">      
+            <th>Booking ID</th>
+            <th>Booking Customer Automotive Brand</th>
+            <th>Booking Customer Automotive Color</th>
+            <th>Booking Date</th>
+            <th>Services</th>
+        </tr>
+        <!--Start Second row is data from table automotive-->
+        @foreach (var singlebooking in Model)
+        {
+            <tr>
+                <td>@singlebooking.BookingID</td>
+                <td>@singlebooking.Booking_CustomerAutoBrand</td>
+                <td>@singlebooking.Booking_CustomerAutoColor</td>
+                <td>@singlebooking.BookingDate</td>
+                <td>@singlebooking.Services</td>
+            </tr>
+        }
+    </table>
+
+</center>

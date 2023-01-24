@@ -1,0 +1,39 @@
+﻿@model cus_automotive
+@{
+    ViewData["Title"] = "AddData";
+}
+
+<center>
+    <h1>Add a new Automotive Info</h1>
+    <br /><hr /><br />
+    <form asp-action="processInsert" method="post">
+        <table border="1">
+            <tr>
+                <th><label asp-for="CustomerAutoBrand"></label></th>
+                <td>
+                    <input asp-for="CustomerAutoBrand" />
+                    <span asp-validation-for="CustomerAutoBrand" class="text-danger"></span>
+                </td>    
+                </tr>
+            <tr>
+                <th><label asp-for="CustomerAutoColor"></label></th>
+                <td>
+                    <input asp-for="CustomerAutoColor" />
+                    <span asp-validation-for="CustomerAutoColor" class="text-danger"></span>
+                </td>
+                </tr>
+            <tr>
+                <th><label asp-for="CustomerAutoRegisterDate"></label></th>
+                <td>
+                    <input asp-for="CustomerAutoRegisterDate" />
+                    <span asp-validation-for="CustomerAutoRegisterDate" class="text-danger"></span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center">
+                    <button type="submit" class="btn btn-primary">Add a new Automotive</button></td>
+            </tr>
+        </table>
+    </form>
+</center>
+
