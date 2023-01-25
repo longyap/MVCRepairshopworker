@@ -19,7 +19,7 @@ namespace Auto_Cust.Controllers
             _context = context;
         }
 
-        //fucntion use to display flower list
+        //fucntion use to display automotive list
         //public IActionResult Index()
         public async Task<IActionResult> Index(string msg = "")
         {
